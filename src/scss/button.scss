@@ -1,0 +1,30 @@
+.button {
+  width: 73px;
+  height: 75px;
+  background: #343434;
+  border-radius: 9px;
+  border: none;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 36px;
+  color: #ffffff;
+  &:first-child {
+    background: #ff5959;
+    color: #343434;
+  }
+  &:last-child {
+    background: #66ff7f;
+    color: #343434;
+  }
+  &:nth-child(2),
+  &:nth-child(3),
+  &:nth-child(4),
+  &:nth-child(8),
+  &:nth-child(12),
+  &:nth-child(16) {
+    color: #66ff7f;
+  }
+  &:hover {
+    opacity: 0.8;
+  }
+}
