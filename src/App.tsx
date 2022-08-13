@@ -8,7 +8,7 @@ const arrButtons = [
   '7',
   '8',
   '9',
-  'x',
+  '*',
   '4',
   '5',
   '6',
@@ -25,29 +25,31 @@ const arrButtons = [
 
 function App() {
   const [inputValue, setInputValue] = React.useState('');
-
+  const [res, setRes] = React.useState(0);
   const onClickButton = (btn: string) => {
-    setInputValue(inputValue + btn);
-
-    switch (btn) {
-      case '+':
-        return console.log('плюс');
-      case '-':
-        return console.log('минус');
-      case 'x':
-        return console.log('умножить');
-      case '/':
-        return console.log('разделить');
-      case '=':
-        return console.log('равно');
-      case '%':
-        return console.log('процент');
-      case 'C':
-        return setInputValue('');
-      case '.':
-        return console.log('дробное число');
-      case '+/-':
-        return console.log('смена знака');
+    if (btn !== '=') {
+      setInputValue(inputValue + btn);
+      switch (btn) {
+        case '+':
+          return console.log('плюс');
+        case '-':
+          return console.log('минус');
+        case '*':
+          return console.log('умножить');
+        case '/':
+          return console.log('разделить');
+        case '=':
+          return console.log('равно');
+        case 'C':
+          setInputValue('');
+          setRes(0);
+          break;
+        case '.':
+          return console.log('дробное число');
+      }
+    } else {
+      setInputValue(eval(inputValue));
+      setRes(eval(inputValue));
     }
   };
 
@@ -60,7 +62,7 @@ function App() {
           className="window__input--top"
           type="text"
         />
-        <input className="window__input--bottom" type="text" disabled />
+        <input value={res % 1 === 0 ? res : res.toFixed(2)} className="window__input--bottom" type="text" disabled />
       </div>
       <div className="wrapper__buttons">
         {arrButtons.map((btn, index) => {

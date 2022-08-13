@@ -24,6 +24,12 @@
   &:nth-child(16) {
     color: #66ff7f;
   }
+  &:nth-child(2),
+  &:nth-child(3),
+  &:nth-child(17) {
+    opacity: 0.2;
+    cursor: auto;
+  }
   &:hover {
     opacity: 0.8;
   }
